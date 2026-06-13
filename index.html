@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>AgroBalance</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="overlay">
+
+<h1>🌱 AgroBalance</h1>
+
+<p>
+Agro forte, futuro sustentável
+</p>
+
+</div>
+
+</header>
+
+<section class="sobre">
+
+<h2>
+Sobre o Projeto
+</h2>
+
+<p>
+
+O AgroBalance foi criado para mostrar que é possível produzir mais e preservar o meio ambiente.
+
+Nosso sistema coleta informações da propriedade rural e calcula um índice sustentável.
+
+</p>
+
+</section>
+
+<section class="simulador">
+
+<h2>
+Simulador Sustentável
+</h2>
+
+<input
+id="agua"
+placeholder="Consumo de água (L/dia)">
+
+<input
+id="mata"
+placeholder="% área preservada">
+
+<select id="energia">
+
+<option value="sim">
+Energia renovável
+</option>
+
+<option value="nao">
+Energia convencional
+</option>
+
+</select>
+
+<button onclick="analisar()">
+
+Analisar Fazenda
+
+</button>
+
+<div id="resultado">
+
+</div>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+
+<h3>
+🌾 Produção
+</h3>
+
+<p>
+
+Produzir alimentos de forma eficiente reduz desperdícios.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+💧 Água
+</h3>
+
+<p>
+
+Economizar água ajuda a manter recursos naturais.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🌎 Meio Ambiente
+</h3>
+
+<p>
+
+Preservação e agricultura podem caminhar juntas.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="imagem">
+
+<img src="assets/sustentavel.jpg">
+
+</section>
+
+<footer>
+
+Projeto desenvolvido para conscientização ambiental 🌱
+
+</footer>
+
+<script>
+
+function analisar(){
+
+let pontos=100;
+
+let agua=
+
+Number(
+document.getElementById("agua").value
+);
+
+let mata=
+
+Number(
+document.getElementById("mata").value
+);
+
+let energia=
+
+document.getElementById("energia").value;
+
+if(agua>5000)
+pontos-=30;
+
+if(mata<20)
+pontos-=25;
+
+if(energia==="nao")
+pontos-=20;
+
+let texto="";
+
+if(pontos>=80){
+
+texto=
+"🌱 Excelente equilíbrio ambiental";
+
+}
+
+else if(pontos>=50){
+
+texto=
+"⚠️ Produção moderadamente sustentável";
+
+}
+
+else{
+
+texto=
+"🔥 Atenção ao impacto ambiental";
+
+}
+
+document.getElementById(
+"resultado"
+)
+
+.innerHTML=
+
+`
+<h2>${texto}</h2>
+
+<p>Pontuação: ${pontos}</p>
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
